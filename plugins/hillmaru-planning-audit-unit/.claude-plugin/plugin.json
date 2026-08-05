@@ -1,23 +1,23 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "hillmaru-planning-audit-unit",
-  "displayName": "HILLMARU 기획감사 Unit",
-  "version": "1.3.9",
-  "description": "HILLMARU 기획감사 Unit 팀 서브에이전트 4명(이깜디/이쿠키/김링키/김띨추)과 구매·보고 관련 실무 스킬 5종(창녕 코스 컨디션 점검, 포천 단가비교, 구매 실적 보고, 견적서→발주서 변환, 동훈 그룹웨어 기안 초안 작성)을 함께 담은 플러그인. 이쿠키는 (주)동훈 그룹웨어(a10.donghoon.com)에서 지출_구매/대금지급요청 기안 초안을 작성해 임시보관까지 진행할 수 있습니다(실제 상신은 항상 사용자가 직접 함). 팀원별 성과 점수·승진 여부는 team-status.json으로 관리합니다.",
-  "author": {
-    "name": "이관현",
-    "email": "kwanhyeonlee@gmail.com"
-  },
-  "keywords": [
-    "hillmaru",
-    "동훈",
-    "기획감사",
-    "audit",
-    "purchasing",
-    "subagent",
-    "team",
-    "skills",
-    "groupware"
-  ],
-  "license": "UNLICENSED"
+"$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+"name": "hillmaru-planning-audit-unit",
+"displayName": "HILLMARU 기획감사 Unit",
+"version": "1.4.0",
+"description": "HILLMARU 기획감사 Unit 팀 서브에이전트 4명(이깜디/이쿠키/김링키/김띨추)과 구매·보고 관련 실무 스킬 6종(창녕 코스 컨디션 점검, 포천 단가비교, 구매 실적 보고, 견적서→발주서 변환, 동훈 그룹웨어 기안 초안 작성, 힐마루 견적관리 시스템 운영)을 함께 담은 플러그인. 이쿠키는 (주)동훈 그룹웨어(a10.donghoon.com)에서 지출_구매/대금지급요청 기안 초안을 작성해 임시보관까지 진행할 수 있고, 자체 개발한 견적관리 웹앱(hillmaru-quote-system.onrender.com)에서 업체/견적 등록·비교·발주서 발급도 대신 수행할 수 있습니다(실제 상신·최종 선정 등 민감한 동작은 항상 사용자 확인 후 진행). 팀원별 성과 점수·승진 여부는 team-status.json으로 관리합니다.",
+"author": {
+"name": "이관현",
+"email": "kwanhyeonlee@gmail.com"
+},
+"keywords": [
+"hillmaru",
+"동훈",
+"기획감사",
+"audit",
+"purchasing",
+"subagent",
+"team",
+"skills",
+"groupware"
+],
+"license": "UNLICENSED"
 }
