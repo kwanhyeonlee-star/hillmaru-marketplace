@@ -59,3 +59,8 @@ HILLMARU 기획감사 Unit 팀 4명을 서브에이전트로, 팀에서 쓰던 �
 ## 참고
 
 각 에이전트/스킬이 다루는 파일 형식에 필요한 파이썬 패키지(pdfplumber, python-docx, python-pptx, pyhwp, pandas, openpyxl 등)는 최초 실행 시 없으면 `--break-system-packages` 옵션으로 설치하도록 안내되어 있습니다.
+
+
+## 마켓플레이스 자동 동기화 (state/team-status.json)
+성과 기록은 각 에이전트의 로컬 team-status.json에 남지만, 세션이 끝나면 그 파일은 사라집니다. 그래서 모든 에이전트는 업무를 마치고 team-status.json을 갱신한 직후, 사용자에게 묻지 않고 이 저장소 루트의 state/team-status.json에도 같은 내용을 자동으로 병합·커밋·푸시합니다(점수는 합산, log는 이어붙임). 이 파일이 팀 전체의 실제 누적 현황입니다.
+세션에 이 저장소 쓰기 권한이 없으면(예: 새로 시작한 클라우드 세션) 자동 동기화는 건너뛰고 그 사실만 한 줄로 안내합니다 — 로컬 team-status.json 자체는 정상적으로 갱신됩니다.
