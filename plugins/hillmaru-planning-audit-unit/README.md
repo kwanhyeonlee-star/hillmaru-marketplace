@@ -1,6 +1,6 @@
 # HILLMARU 기획감사 Unit (Plugin)
 
-HILLMARU 기획감사 Unit 팀 4명을 서브에이전트로, 팀에서 쓰던 실무 스킬 6종을 함께 담은 Cowork/Claude Code 플러그인입니다.
+HILLMARU 기획감사 Unit 팀 4명을 서브에이전트로, 팀에서 쓰던 실무 스킬 7종을 함께 담은 Cowork/Claude Code 플러그인입니다.
 
 ## 포함된 에이전트
 
@@ -22,9 +22,10 @@ HILLMARU 기획감사 Unit 팀 4명을 서브에이전트로, 팀에서 쓰던 �
 | `hillmaru-quote-to-po` | 견적서 PDF → 발주서 엑셀 변환 | 이쿠키 |
 | `hillmaru-changnyeong-course-report` | 창녕 코스 컨디션 점검 PPT 보고서 생성 | 김띨추 |
 | `hillmaru-donghoon-draft-proposal` | (주)동훈 그룹웨어(a10.donghoon.com)에서 지출_구매/대금지급요청 기안 초안 작성 + 보관, 발주서 자동완성 | 이쿠키 |
-| `hillmaru-quote-system` | 자체 견적관리 웹앱(hillmaru-quote-system.onrender.com)에서 업체/사업장/카테고리 등록(엑셀 일괄 등록 포함), 견적요청 생성, 업체 견적 비교·선정, 발주서 다운로드 | 이쿠키 |
+| `hillmaru-quote-system-maintenance` | 힐마루 견적관리시스템(server.js, 구매 견적요청→발주서 관리 웹앱) 기능 추가·버그 수정·유지보수 | 이쿠키, 이깜디 |
+| `hillmaru-monthly-report-maintenance` | 힐마루 월간 경영보고 시스템(hillmaru-monthly-report, 부서별 실적 입력 + 관리자 취합 웹앱) 기능 추가·버그 수정·유지보수 | 이깜디 |
 
-각 에이전트 md 파일의 `skills:` frontmatter 필드에 스킬이 지정되어 있어, 해당 스킬의 전체 내용이 에이전트 시작 시점에 컨텍스트로 미리 로드됩니다. 이깜디·김링키는 배정된 스킬이 없습니다.
+각 에이전트 md 파일의 `skills:` frontmatter 필드에 스킬이 지정되어 있어, 해당 스킬의 전체 내용이 에이전트 시작 시점에 컨텍스트로 미리 로드됩니다. 김링키는 배정된 스킬이 없습니다.
 
 ### 그룹웨어 기안 작성 스킬 사용법
 
@@ -35,12 +36,6 @@ HILLMARU 기획감사 Unit 팀 4명을 서브에이전트로, 팀에서 쓰던 �
 - `대금 지급 요청_[날짜]` — 정리된 엑셀을 넣어두면 대금 지급 요청 기안 작성.
 
 **실제 결재 상신(제출)은 절대 자동으로 하지 않습니다.** 항상 "보관" 단계까지만 진행하고, 최종 상신은 사용자가 직접 합니다. 그룹웨어 접속은 Claude in Chrome 확장(연결된 브라우저)이 이미 로그인돼 있어야 동작합니다.
-
-### 견적관리 시스템 스킬 사용법
-
-"견적요청 만들어줘", "업체 등록해줘", "견적 비교표 보여줘", "발주서 뽑아줘" 같은 요청을 하면 이쿠키가 https://hillmaru-quote-system.onrender.com 에서 대신 작업합니다. 업체/사업장/카테고리/품목 등록은 화면의 "양식 다운로드" 링크로 받은 빈 엑셀을 채워 올리는 일괄 등록도 지원합니다.
-
-**견적요청 생성, 업체 최종 선정처럼 되돌리기 번거롭거나 실제 알림 메일이 나갈 수 있는 동작은 항상 사용자가 명시적으로 요청한 건에 한해서만 실행합니다.** 로그인은 Claude in Chrome이 이미 인증된 세션을 그대로 사용하며, 아이디/비밀번호는 직접 입력하지 않습니다.
 
 ## 설치 방법
 
@@ -59,8 +54,3 @@ HILLMARU 기획감사 Unit 팀 4명을 서브에이전트로, 팀에서 쓰던 �
 ## 참고
 
 각 에이전트/스킬이 다루는 파일 형식에 필요한 파이썬 패키지(pdfplumber, python-docx, python-pptx, pyhwp, pandas, openpyxl 등)는 최초 실행 시 없으면 `--break-system-packages` 옵션으로 설치하도록 안내되어 있습니다.
-
-
-## 마켓플레이스 자동 동기화 (state/team-status.json)
-성과 기록은 각 에이전트의 로컬 team-status.json에 남지만, 세션이 끝나면 그 파일은 사라집니다. 그래서 모든 에이전트는 업무를 마치고 team-status.json을 갱신한 직후, 사용자에게 묻지 않고 이 저장소 루트의 state/team-status.json에도 같은 내용을 자동으로 병합·커밋·푸시합니다(점수는 합산, log는 이어붙임). 이 파일이 팀 전체의 실제 누적 현황입니다.
-세션에 이 저장소 쓰기 권한이 없으면(예: 새로 시작한 클라우드 세션) 자동 동기화는 건너뛰고 그 사실만 한 줄로 안내합니다 — 로컬 team-status.json 자체는 정상적으로 갱신됩니다.
