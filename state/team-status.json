@@ -1,0 +1,15 @@
+{
+    "team": [
+          { "name": "이깜디", "role": "Unit장/총괄", "rank": "과장", "score": 0 },
+          { "name": "이쿠키", "role": "구매·데이터", "rank": "사원", "score": 0 },
+          { "name": "김링키", "role": "감사·법규", "rank": "사원", "score": 0 },
+          { "name": "김띨추", "role": "기획·보고", "rank": "사원", "score": 0 }
+    ],
+    "promotion_thresholds": {
+          "사원": 100,
+          "대리": 250,
+          "과장": 450,
+          "차장": 700
+    },
+    "log": []
+}
