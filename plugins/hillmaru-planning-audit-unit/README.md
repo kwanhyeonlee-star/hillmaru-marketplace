@@ -51,6 +51,10 @@ HILLMARU 기획감사 Unit 팀 4명을 서브에이전트로, 팀에서 쓰던 �
 - `promotion_thresholds`의 랭크별 기준 점수는 예시값이니 실제 인사 기준에 맞게 수정해서 쓰세요.
 - 누적 점수가 현재 rank 기준을 넘으면 자동 승진 처리하지 않고, 항상 사용자에게 승인 여부를 먼저 묻습니다.
 
+## 마켓플레이스 동기화 규칙
+
+이 플러그인/스킬을 신규로 만들거나 수정할 때는 Cowork 로컬 "Save skill" 설치로 끝내지 않고, 반드시 이 마켓플레이스 저장소(`hillmaru-marketplace`, https://github.com/kwanhyeonlee-star/hillmaru-marketplace)의 해당 파일(`plugins/hillmaru-planning-audit-unit/...`, 필요 시 루트 `.claude-plugin/marketplace.json`)까지 동일하게 커밋해 반영한다. 로컬 설치본과 마켓플레이스 소스가 어긋나지 않도록, 스킬/에이전트/README/plugin.json을 고칠 때마다 이 저장소에도 같은 변경을 push하는 것을 기본 절차로 한다.
+
 ## 참고
 
 각 에이전트/스킬이 다루는 파일 형식에 필요한 파이썬 패키지(pdfplumber, python-docx, python-pptx, pyhwp, pandas, openpyxl 등)는 최초 실행 시 없으면 `--break-system-packages` 옵션으로 설치하도록 안내되어 있습니다.
